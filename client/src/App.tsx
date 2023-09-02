@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Timer from './components/Timer';
+import StartModal from './components/StartScreen';'@/src/components/StartScreen';
+import Main from './components/MainScreen';
 import WordInput from './components/WordInput';
 import Result from './components/Result';
 
@@ -19,6 +21,7 @@ type Submit = (event: React.FormEvent<HTMLFormElement>) => void;
 
 const App: React.FC = () => {
 
+  const [playing, setPlaying] = React.useState(false);
   const [wordToMatch, setWordToMatch] = useState("spider");
   const [typedWord, setTypedWord] = useState("");
   const [result, setResult] = useState("");
@@ -63,6 +66,8 @@ const App: React.FC = () => {
     <div id="App">
       <p>Hello, world!</p>
       <Timer />
+      <Main playing={playing} setPlaying={setPlaying}/>
+      <StartModal />
       <h1>{wordToMatch}</h1>
       <WordInput typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <Result result={result} funFact={funFact} />
