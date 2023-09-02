@@ -64,8 +64,6 @@ const App: React.FC = () => {
 
   return (
     <div id="App">
-      <p>Hello, world!</p>
-      <Timer />
       <Main playing={playing} setPlaying={setPlaying}/>
       <StartModal />
       <h1>{wordToMatch}</h1>
@@ -74,6 +72,7 @@ const App: React.FC = () => {
     </div>
   );
 }
+
 export default App;
 
 //onChange={(e: React.ChangeEvent<HTMLInputElement>): void => handleChange(e.target.value)}

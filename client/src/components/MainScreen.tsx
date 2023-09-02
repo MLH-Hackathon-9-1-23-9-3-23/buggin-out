@@ -9,8 +9,7 @@ interface MainProps {
 export default function Main({ playing, setPlaying }: MainProps) {
   return (
     <div id="Main">
-      <p>Hello, world!</p>
-      <Timer />
+      <Timer startTimer={playing}/>
       <button onClick={() => setPlaying(!playing)}>
         {playing ? "Stop" : "Start"}
       </button>
