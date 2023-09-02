@@ -6,7 +6,7 @@ module.exports = {
 
     getWordsFromDB((err: Error | null, data: any) => {
       if (err) {
-        console.log('Received an error on route /controller/getWordFromDB');
+        console.log('Received an error on route /controller/getWordFromDB', err);
         res.sendStatus(404);
       } else {
         res.status(201).send(data);
