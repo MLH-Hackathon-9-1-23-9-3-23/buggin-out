@@ -10,7 +10,7 @@ export default function Main({ playing, setPlaying }: MainProps) {
   return (
     <div id="Main">
       <p>Hello, world!</p>
-      <Timer startTimer={playing}/>
+      <Timer />
       <button onClick={() => setPlaying(!playing)}>
         {playing ? "Stop" : "Start"}
       </button>
