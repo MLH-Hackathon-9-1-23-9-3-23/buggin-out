@@ -26,6 +26,7 @@
     "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "ts-loader": "^9.4.4"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "@swc/register": "^0.1.10",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "@types/react-modal": "^3.16.0",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "babel-loader": "^9.1.3",
