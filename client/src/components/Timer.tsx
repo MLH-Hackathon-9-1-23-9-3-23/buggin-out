@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 interface TimerProps {
   startTimer: boolean;
+  resetTimer: boolean;
 }
 
-const Timer = ({startTimer}: TimerProps) => {
+const Timer = ({startTimer, resetTimer}: TimerProps) => {
   // const [ms, setMS] = useState(0);
   const [sec, setSec] = useState(10);
 
@@ -14,6 +15,10 @@ const Timer = ({startTimer}: TimerProps) => {
       setTimeout(() => setSec(sec - 1), 1000);
     }
   }, [sec, startTimer]);
+
+  useEffect(()=>{
+    setSec(10);
+  },[resetTimer])
 
   return (
     <div className="timer">
