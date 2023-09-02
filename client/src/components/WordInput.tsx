@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 interface WordInputProps {
   typedWord: string,
+  playing: boolean,
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
-const WordInput: React.FC<WordInputProps> = ({typedWord, handleInputChange, handleSubmit}) => {
+const WordInput: React.FC<WordInputProps> = ({typedWord, playing, handleInputChange, handleSubmit}) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
