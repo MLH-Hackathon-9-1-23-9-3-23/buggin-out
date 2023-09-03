@@ -6,7 +6,7 @@ interface EndScreenProps {
 
 function EndScreen({setMode} : EndScreenProps) {
   return (
-    <div>
+    <div id="EndScreen">
       <div>Game Over!</div>
       <button onClick={() => setMode('start')}>Go back to title screen</button>
     </div>

@@ -40,3 +40,10 @@
   background-size: cover;
   height: 100vh;
 }
+
+#EndScreen {
+  background: url('./bgs/endbg.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100vh;
+}
