@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 interface TimerProps {
+  sec: number;
+  setSec: (arg0:number)=>void;
 }
 
-const Timer = ({}: TimerProps) => {
-  const [sec, setSec] = useState(10);
+const Timer = ({sec, setSec}: TimerProps) => {
+  // const [sec, setSec] = useState(10);
 
   const countDown = () => {
     if (sec > 0) {
