@@ -19,7 +19,7 @@ function ResultContainer({sec, setSec, mode, setMode, getOtherWord}: ResultConta
       <Timer sec={sec} setSec={setSec}/>
     )
   }
-  if (mode === 'result') {
+  if (mode === 'result' ) {
     return (
       <div>
         <button
@@ -31,6 +31,24 @@ function ResultContainer({sec, setSec, mode, setMode, getOtherWord}: ResultConta
           }
         >
           Next word!
+        </button>
+        {/* Put the fun fact here or something like "You did it!" */}
+      </div>
+    )
+  }
+  if(mode === 'tryAgain'){
+    console.log('try agian here!')
+    return (
+      <div>
+        <button
+          onClick={
+            () => {
+              getOtherWord();
+              setMode('game');
+            }
+          }
+        >
+          Bruh cmon! Next word!
         </button>
         {/* Put the fun fact here or something like "You did it!" */}
       </div>

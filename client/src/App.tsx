@@ -16,7 +16,7 @@ const App: React.FC = () => {
     return <TitleScreen setMode={setMode}/>
   }
 
-  if (mode === 'game' || mode === 'result') {
+  if (mode === 'game' || mode === 'result' || mode === 'tryAgain') {
     return (
       <div id="App">
         <Main mode={mode} setMode={setMode}/>

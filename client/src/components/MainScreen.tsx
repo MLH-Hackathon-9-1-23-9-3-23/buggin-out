@@ -5,6 +5,7 @@ import ResultContainer from './ResultContainer';
 import WordInput from './WordInput';
 import Result from './Result';
 import Score from './Score'
+import Lives from './NumberOfLives'
 
 import BeeOnABike from './BeeOnABike';
 
@@ -95,7 +96,6 @@ export default function Main({ mode, setMode }: MainProps) {
       //   fact = sampleData[index].funFact;
       // }
       // setFunFact(fact);
-
     } else {
       // setResult("Try again!");
       console.log('Try again!');
@@ -107,7 +107,7 @@ export default function Main({ mode, setMode }: MainProps) {
   return (
     <div id="Main">
       <h1>{wordToMatch}</h1>
-
+      <Lives sec={sec} mode={mode} setMode={setMode}/>
       <Score wordToMatch={wordToMatch} matched={matched}/>
       <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
