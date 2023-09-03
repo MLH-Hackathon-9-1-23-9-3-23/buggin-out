@@ -29,6 +29,7 @@ export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
   const [matched, setMatched] = useState(false);
   const [sec, setSec] = useState(10);
+  const [matched, setMatched] = useState(false);
 
   const getNewWord = () => {
     setWordToMatch("spider");
@@ -62,6 +63,7 @@ export default function Main({ mode, setMode }: MainProps) {
 
     if (typedWord === wordToMatch) {
       setMode('result');
+      setMatched(true);
       // setResult("Correct!");
       setMatched(true);
       console.log('you were right!');
@@ -83,8 +85,9 @@ export default function Main({ mode, setMode }: MainProps) {
   return (
     <div id="Main">
       <h1>{wordToMatch}</h1>
+
       <Score wordToMatch={wordToMatch} matched={matched}/> 
-      <WordInput sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
+      <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
 
       {/* <Timer startTimer={playing} resetTimer={resetTimer}/>
