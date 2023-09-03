@@ -3,7 +3,6 @@ import axios from "axios";
 import Timer from "./Timer";
 import ResultContainer from './ResultContainer';
 import WordInput from './WordInput';
-import Result from './Result';
 import Score from './Score'
 import Lives from './NumberOfLives'
 
