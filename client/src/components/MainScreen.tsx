@@ -114,20 +114,19 @@ export default function Main({ mode, setMode }: MainProps) {
 
   return (
     <div id="Main">
-      <h1>{wordToMatch}</h1>
-
-      <Score wordToMatch={wordToMatch} matched={matched}/>
-      <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
-      <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord} funFact={funFact} isWrong={isWrong}/>
-
-      {/* <Timer startTimer={playing} resetTimer={resetTimer}/>
-      <button onClick={() => setPlaying(!playing)}>
-        {playing ? "Stop" : "Start"}
-      </button>
-      <h1>{wordToMatch}</h1>
-      <WordInput playing={playing} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
-      <Result result={result} funFact={funFact} /> */}
-
+      <h1 className="wordToMatch">{wordToMatch}</h1>
+        <div className="playerMetrics">
+          <Score wordToMatch={wordToMatch} matched={matched}/>
+          <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
+          <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord} funFact={funFact} isWrong={isWrong}/>
+        </div>
+        {/* <Timer startTimer={playing} resetTimer={resetTimer}/>
+        <button onClick={() => setPlaying(!playing)}>
+          {playing ? "Stop" : "Start"}
+        </button>
+        <h1>{wordToMatch}</h1>
+        <WordInput playing={playing} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
+        <Result result={result} funFact={funFact} /> */}
       <div className="BeeContainer">
         <BeeOnABike />
       </div>
