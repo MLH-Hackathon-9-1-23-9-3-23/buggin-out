@@ -24,7 +24,7 @@ function ResultContainer({sec, setSec, mode, setMode, getOtherWord, funFact, isW
       </>
     )
   }
-  if (mode === 'result') {
+  if (mode === 'result' ) {
     return (
       <div>
         <button
@@ -40,6 +40,24 @@ function ResultContainer({sec, setSec, mode, setMode, getOtherWord, funFact, isW
         {funFact ? <p>{funFact}</p> : <p>There are no fun facts</p>}
       </div>
     );
+  }
+  if(mode === 'tryAgain'){
+    console.log('try agian here!')
+    return (
+      <div>
+        <button
+          onClick={
+            () => {
+              getOtherWord();
+              setMode('game');
+            }
+          }
+        >
+          Bruh cmon! Next word!
+        </button>
+        {/* Put the fun fact here or something like "You did it!" */}
+      </div>
+    )
   }
 }
 export default ResultContainer;
