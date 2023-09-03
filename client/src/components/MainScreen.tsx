@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import Timer from "./Timer";
 import ResultContainer from './ResultContainer';
-
 import WordInput from './WordInput';
 import Result from './Result';
 import Score from './Score'
+
+import BeeOnABike from './BeeOnABike';
 
 const sampleData = [
   {
@@ -96,6 +97,10 @@ export default function Main({ mode, setMode }: MainProps) {
       <h1>{wordToMatch}</h1>
       <WordInput playing={playing} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <Result result={result} funFact={funFact} /> */}
+
+      <div className="BeeContainer">
+        <BeeOnABike />
+      </div>
     </div>
   );
 }
