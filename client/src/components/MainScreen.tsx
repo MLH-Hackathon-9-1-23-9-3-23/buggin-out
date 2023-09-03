@@ -26,6 +26,7 @@ type Submit = (event: React.FormEvent<HTMLFormElement>) => void;
 
 export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
+  const [sec, setSec] = useState(10);
 
   const getNewWord = () => {
     setWordToMatch("spider");
@@ -41,6 +42,7 @@ export default function Main({ mode, setMode }: MainProps) {
 
   useEffect(() => {
     // some logic that resets the input field and timer
+    setSec(10);
   }, [wordToMatch])
 
 
@@ -77,8 +79,8 @@ export default function Main({ mode, setMode }: MainProps) {
   return (
     <div id="Main">
       <h1>{wordToMatch}</h1>
-      <WordInput typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
-      <ResultContainer mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
+      <WordInput sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
+      <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
 
       {/* <Timer startTimer={playing} resetTimer={resetTimer}/>
       <button onClick={() => setPlaying(!playing)}>

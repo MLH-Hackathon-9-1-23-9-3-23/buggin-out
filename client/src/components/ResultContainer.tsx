@@ -2,19 +2,21 @@ import React from 'react'
 import Timer from "./Timer";
 
 interface ResultContainerProps {
-  mode: string,
+  sec: number;
+  setSec: (arg0: number)=>void;
+  mode: string;
   setMode: React.Dispatch<React.SetStateAction<string>>;
   getOtherWord: () => void;
 }
 
-function ResultContainer({mode, setMode, getOtherWord}: ResultContainerProps ) {
+function ResultContainer({sec, setSec, mode, setMode, getOtherWord}: ResultContainerProps ) {
 
   // const [result, setResult] = useState("");
   // const [funFact, setFunFact] = useState("");
 
   if (mode === 'game') {
     return (
-      <Timer />
+      <Timer sec={sec} setSec={setSec}/>
     )
   }
   if (mode === 'result') {
