@@ -9,6 +9,9 @@ interface ResultContainerProps {
 
 function ResultContainer({mode, setMode, getOtherWord}: ResultContainerProps ) {
 
+  // const [result, setResult] = useState("");
+  // const [funFact, setFunFact] = useState("");
+
   if (mode === 'game') {
     return (
       <Timer />
