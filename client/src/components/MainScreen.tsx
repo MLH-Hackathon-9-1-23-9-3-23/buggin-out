@@ -27,6 +27,7 @@ type Submit = (event: React.FormEvent<HTMLFormElement>) => void;
 export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
   const [sec, setSec] = useState(10);
+  const [matched, setMatched] = useState(false);
 
   const getNewWord = () => {
     setWordToMatch("spider");
@@ -43,6 +44,7 @@ export default function Main({ mode, setMode }: MainProps) {
   useEffect(() => {
     // some logic that resets the input field and timer
     setSec(10);
+    setMatched(false);
   }, [wordToMatch])
 
 
@@ -59,6 +61,7 @@ export default function Main({ mode, setMode }: MainProps) {
 
     if (typedWord === wordToMatch) {
       setMode('result');
+      setMatched(true);
       // setResult("Correct!");
       console.log('you were right!');
       var index = sampleData.findIndex(item => item.word === typedWord)
@@ -79,7 +82,7 @@ export default function Main({ mode, setMode }: MainProps) {
   return (
     <div id="Main">
       <h1>{wordToMatch}</h1>
-      <WordInput sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
+      <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
 
       {/* <Timer startTimer={playing} resetTimer={resetTimer}/>

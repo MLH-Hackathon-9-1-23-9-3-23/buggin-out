@@ -30,7 +30,7 @@ function ResultContainer({sec, setSec, mode, setMode, getOtherWord}: ResultConta
             }
           }
         >
-          Press Me
+          Next word!
         </button>
         {/* Put the fun fact here or something like "You did it!" */}
       </div>
