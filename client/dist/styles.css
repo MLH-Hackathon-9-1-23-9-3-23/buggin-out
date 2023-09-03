@@ -1,3 +1,10 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
 @keyframes backgrounds {
   0% {
     background: url('./bgs/bg1.jpg');
@@ -25,7 +32,6 @@
     background-size: cover;
   }
 }
-
 #App {
   animation-name: backgrounds;
   animation-duration: 60s;
@@ -35,15 +41,57 @@
 }
 
 #StartScreen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   background: url('./bgs/titlebg.jpg');
   background-position: 50% 50%;
   background-size: cover;
   height: 100vh;
 }
-
 #EndScreen {
   background: url('./bgs/endbg.jpg');
   background-position: 50% 50%;
   background-size: cover;
   height: 100vh;
+}
+.startOrEnd {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: solid black 2px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  font-size: 8vh;
+  justify-content: center;
+  padding: 10px;
+}
+
+#Main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+.BeeContainer {
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+.wordToMatch {
+  font-size: 8vh;
+  background-color: white;
+  border: solid black 2px;
+  border-radius: 5%;
+  padding: 10px;
+}
+
+.playerMetrics {
+  background-color: white;
+  border: solid black 2px;
+  border-radius: 5%;
+  padding: 10px;
 }
