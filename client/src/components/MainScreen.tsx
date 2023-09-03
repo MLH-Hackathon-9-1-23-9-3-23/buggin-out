@@ -29,7 +29,6 @@ export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
   const [matched, setMatched] = useState(false);
   const [sec, setSec] = useState(10);
-  const [matched, setMatched] = useState(false);
 
   const getNewWord = () => {
     setWordToMatch("spider");
@@ -65,7 +64,7 @@ export default function Main({ mode, setMode }: MainProps) {
       setMode('result');
       setMatched(true);
       // setResult("Correct!");
-      setMatched(true);
+
       console.log('you were right!');
       var index = sampleData.findIndex(item => item.word === typedWord)
       // var fact = 'no fun fact :('
