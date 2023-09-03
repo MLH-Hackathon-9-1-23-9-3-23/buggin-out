@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 interface TimerProps {
-  startTimer: boolean;
-  resetTimer: boolean;
 }
 
-const Timer = ({startTimer, resetTimer}: TimerProps) => {
-  // const [ms, setMS] = useState(0);
+const Timer = ({}: TimerProps) => {
   const [sec, setSec] = useState(10);
 
-  useEffect(() => {
-    if (sec > 0 && startTimer) {
-      console.log(sec)
-      setTimeout(() => setSec(sec - 1), 1000);
+  const countDown = () => {
+    if (sec > 0) {
+      setSec(sec - 1)
     }
-  }, [sec, startTimer]);
+  }
 
-  useEffect(()=>{
-    setSec(10);
-  },[resetTimer])
+  useEffect(() => {
+    setTimeout(() => countDown(), 1000);
+  }, [sec]);
 
   return (
     <div className="timer">
@@ -26,6 +22,5 @@ const Timer = ({startTimer, resetTimer}: TimerProps) => {
     </div>
   );
 };
-
 export default Timer;
 
