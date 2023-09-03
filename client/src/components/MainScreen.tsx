@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import axios from "axios";
 import Timer from "./Timer";
 import ResultContainer from './ResultContainer';
 
@@ -27,15 +28,36 @@ type Submit = (event: React.FormEvent<HTMLFormElement>) => void;
 
 export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
+  const [wordsList, setWordsList] = useState<any[]>([])
   const [matched, setMatched] = useState(false);
   const [sec, setSec] = useState(10);
 
-  const getNewWord = () => {
-    setWordToMatch("spider");
+  const getNewWord = async () => {
+    //axios request here
+    try{
+      const results = await axios.get('/words')
+      console.log(results);
+      setWordsList(results.data)
+      const baseWord = results.data[Math.floor(Math.random()*results.data.length)];
+      setWordToMatch(baseWord.word);
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   const getOtherWord = () => {
-    setWordToMatch("honey");
+    //axios request here
+    // try{
+    //   const results = await axios.get('/words')
+    //   console.log(results);
+    //   const baseWord = results.data[Math.floor(Math.random()*results.data.length)];
+    //   setWordToMatch(baseWord.word);
+    // } catch(err) {
+    //   console.error(err);
+    // }
+    const baseWord = wordsList[Math.floor(Math.random()* wordsList.length)];
+    console.log(baseWord)
+    setWordToMatch(baseWord.word);
   }
 
   useEffect(() => {
@@ -85,7 +107,7 @@ export default function Main({ mode, setMode }: MainProps) {
     <div id="Main">
       <h1>{wordToMatch}</h1>
 
-      <Score wordToMatch={wordToMatch} matched={matched}/> 
+      <Score wordToMatch={wordToMatch} matched={matched}/>
       <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
 
