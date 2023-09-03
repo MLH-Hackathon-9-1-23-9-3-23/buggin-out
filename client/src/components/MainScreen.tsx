@@ -4,6 +4,7 @@ import ResultContainer from './ResultContainer';
 
 import WordInput from './WordInput';
 import Result from './Result';
+import Score from './Score'
 
 const sampleData = [
   {
@@ -26,6 +27,7 @@ type Submit = (event: React.FormEvent<HTMLFormElement>) => void;
 
 export default function Main({ mode, setMode }: MainProps) {
   const [wordToMatch, setWordToMatch] = useState("");
+  const [matched, setMatched] = useState(false);
   const [sec, setSec] = useState(10);
 
   const getNewWord = () => {
@@ -43,6 +45,7 @@ export default function Main({ mode, setMode }: MainProps) {
   useEffect(() => {
     // some logic that resets the input field and timer
     setSec(10);
+    setMatched(false);
   }, [wordToMatch])
 
 
@@ -60,6 +63,7 @@ export default function Main({ mode, setMode }: MainProps) {
     if (typedWord === wordToMatch) {
       setMode('result');
       // setResult("Correct!");
+      setMatched(true);
       console.log('you were right!');
       var index = sampleData.findIndex(item => item.word === typedWord)
       // var fact = 'no fun fact :('
@@ -79,6 +83,7 @@ export default function Main({ mode, setMode }: MainProps) {
   return (
     <div id="Main">
       <h1>{wordToMatch}</h1>
+      <Score wordToMatch={wordToMatch} matched={matched}/> 
       <WordInput sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
       <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
 
