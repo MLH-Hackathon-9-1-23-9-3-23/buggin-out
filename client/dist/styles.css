@@ -1,26 +1,26 @@
 @keyframes backgrounds {
   0% {
-    background: url('src/components/assets/bg1.jpg');
+    background: url('./bgs/bg1.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
   25% {
-    background: url('src/components/assets/bg2.jpg');
+    background: url('./bgs/bg2.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
   50% {
-    background: url('src/components/assets/bg3.jpg');
+    background: url('./bgs/bg3.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
   75% {
-    background: url('src/components/assets/bg4.jpg');
+    background: url('./bgs/bg4.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
   100% {
-    background: url('src/components/assets/bg5.jpg');
+    background: url('./bgs/bg5.jpg');
     background-position: 50% 50%;
     background-size: cover;
   }
@@ -31,5 +31,12 @@
   animation-duration: 60s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  height: 100vh;
+}
+
+#StartScreen {
+  background: url('./bgs/titlebg.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
   height: 100vh;
 }

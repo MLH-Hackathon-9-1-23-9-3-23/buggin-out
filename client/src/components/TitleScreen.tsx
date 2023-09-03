@@ -6,7 +6,7 @@ interface TitleScreenProps {
 
 function TitleScreen({setMode} : TitleScreenProps) {
   return (
-    <div>
+    <div id="StartScreen">
       <div>Buggin Out</div>
       <button onClick={() => setMode('game')}>Play!</button>
     </div>
