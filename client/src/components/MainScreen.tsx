@@ -32,6 +32,8 @@ export default function Main({ mode, setMode }: MainProps) {
   const [wordsList, setWordsList] = useState<any[]>([])
   const [matched, setMatched] = useState(false);
   const [sec, setSec] = useState(10);
+  const [funFact, setFunFact] = useState("");
+  const [isWrong, setIsWrong] = useState(false);
 
   const getNewWord = async () => {
     //axios request here
@@ -41,6 +43,7 @@ export default function Main({ mode, setMode }: MainProps) {
       setWordsList(results.data)
       const baseWord = results.data[Math.floor(Math.random()*results.data.length)];
       setWordToMatch(baseWord.word);
+      setFunFact(baseWord.funFact);
     } catch(err) {
       console.error(err);
     }
@@ -59,6 +62,7 @@ export default function Main({ mode, setMode }: MainProps) {
     const baseWord = wordsList[Math.floor(Math.random()* wordsList.length)];
     console.log(baseWord)
     setWordToMatch(baseWord.word);
+    setFunFact(baseWord.funFact);
   }
 
   useEffect(() => {
@@ -69,6 +73,7 @@ export default function Main({ mode, setMode }: MainProps) {
     // some logic that resets the input field and timer
     setSec(10);
     setMatched(false);
+    setIsWrong(false);
   }, [wordToMatch])
 
 
@@ -84,7 +89,7 @@ export default function Main({ mode, setMode }: MainProps) {
     event.preventDefault();
 
     if (typedWord === wordToMatch) {
-      setMode('result');
+      // setMode('result');
       setMatched(true);
       // setResult("Correct!");
 
@@ -95,11 +100,14 @@ export default function Main({ mode, setMode }: MainProps) {
       //   fact = sampleData[index].funFact;
       // }
       // setFunFact(fact);
-
+      // setIsCorrect(true);
+      setMode('result');
     } else {
       // setResult("Try again!");
       console.log('Try again!');
+      setIsWrong(true);
     }
+
     setTypedWord('');
   };
 
@@ -110,7 +118,7 @@ export default function Main({ mode, setMode }: MainProps) {
 
       <Score wordToMatch={wordToMatch} matched={matched}/>
       <WordInput matched={matched} sec={sec} typedWord={typedWord} handleInputChange={ handleInputChange } handleSubmit={handleSubmit} />
-      <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord}/>
+      <ResultContainer sec={sec} setSec={setSec} mode={mode} setMode={setMode} getOtherWord={getOtherWord} funFact={funFact} isWrong={isWrong}/>
 
       {/* <Timer startTimer={playing} resetTimer={resetTimer}/>
       <button onClick={() => setPlaying(!playing)}>
